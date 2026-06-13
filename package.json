@@ -1,0 +1,20 @@
+{
+  "name": "budget-flow",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend && npx playwright install",
+    "migrate": "npm run migrate --prefix backend",
+    "seed": "npm run seed --prefix backend",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "test:unit": "npm run test:unit --prefix backend",
+    "test:integration": "npm run test:integration --prefix backend",
+    "test:e2e": "npm run test --prefix e2e",
+    "test:load": "k6 run load-tests/budget-flow-load-test.js",
+    "deploy:lifeapp": "powershell -ExecutionPolicy Bypass -File scripts/deploy-lifeapp.ps1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0",
+    "concurrently": "^9.1.2"
+  }
+}

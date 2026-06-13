@@ -1,6 +1,6 @@
-# BudgetFlow
+# LifeApp
 
-BudgetFlow contains two JavaScript web applications in one Vite frontend:
+LifeApp contains two JavaScript web applications in one Vite frontend:
 
 - A household budget application with authentication, budgets, categories, transactions and dashboard.
 - A local cooking assistant for dishes, random selection, weekly meal planning, cooking history, calendar view and browser notifications.

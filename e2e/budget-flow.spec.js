@@ -77,12 +77,22 @@ test("userCanSeeUpdatedRemainingBudgetOnDashboard", async ({ page }) => {
 
   await page.getByRole("link", { name: "Transactions" }).click();
   await page.getByTestId("transaction-type").selectOption("income");
+  
+  await expect(
+    page.getByTestId("transaction-category").locator("option", { hasText: "Salary" })
+  ).toHaveCount(1);
+
   await page.getByTestId("transaction-category").selectOption({ label: "Salary" });
   await page.getByTestId("transaction-amount").fill("500");
   await page.getByTestId("transaction-date").fill("2026-01-10");
   await page.getByTestId("transaction-submit").click();
   await expect(page.getByTestId("transaction-list")).toContainText("Salary");
   await page.getByTestId("transaction-type").selectOption("expense");
+  
+  await expect(
+    page.getByTestId("transaction-category").locator("option", { hasText: "Groceries" })
+  ).toHaveCount(1);
+  
   await page.getByTestId("transaction-category").selectOption({ label: "Groceries" });
   await page.getByTestId("transaction-amount").fill("200");
   await page.getByTestId("transaction-date").fill("2026-01-11");
